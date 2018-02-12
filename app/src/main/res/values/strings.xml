@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Power cabinet and Generator sizing</string>
+
+
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="load_current_a">Load current</string>
+    <string name="battery_capacity_ah">Battery capacity</string>
+    <string name="nomber_of_battery_string">Number of battery string</string>
+    <string name="rectifier_module_size_w">Rectifier module size</string>
+    <string name="calculate">Calculate</string>
+    <string name="error_field_required">Field Required</string>
+    <string name="result">Result</string>
+    <string name="home">Home</string>
+    <string name="battery_charge_current_a">Battery charge current (A)</string>
+    <string name="generator_capacity_kva">Generator size (KVA)</string>
+    <string name="nomber_of_rectifiers_need">Nomber of rectifiers need (Modules)</string>
+    <string name="aircon_size">Aircon size</string>
+    <string name="no">no</string>
+    <string name="yes">yes</string>
+    <string name="battery_without_charge">No charge</string>
+    <string name="autonomy">Battery Autonomy (hours)</string>
+    <string name="battery_charge">Charge</string>
+</resources>
