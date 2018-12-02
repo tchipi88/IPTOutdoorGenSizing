@@ -13,11 +13,20 @@
     <string name="home">Home</string>
     <string name="battery_charge_current_a">Battery charge current (A)</string>
     <string name="generator_capacity_kva">Generator size (KVA)</string>
-    <string name="nomber_of_rectifiers_need">Nomber of rectifiers need (Modules)</string>
+    <string name="nomber_of_rectifiers_need">Number of rectifiers need (Modules)</string>
     <string name="aircon_size">Aircon size</string>
     <string name="no">no</string>
     <string name="yes">yes</string>
-    <string name="battery_without_charge">No charge</string>
+    <string name="battery_without_charge">Battery without charge</string>
     <string name="autonomy">Battery Autonomy (hours)</string>
-    <string name="battery_charge">Charge</string>
+    <string name="battery_charge">Battery Charge</string>
+    <string name="site_name">Name</string>
+    <string name="site_id">IHS ID</string>
+    <string name="site_location">State</string>
+    <string name="site_configuration">Configuration</string>
+    <string name="site_classe">Class</string>
+    <string name="site_topology">Topology</string>
+    <string name="site_operator_id">Operator ID</string>
+    <string name="number_of_rectifiers">Number of rectifiers (Modules)</string>
+    <string name="gen_power_limitation">Gen-Power limitation</string>
 </resources>

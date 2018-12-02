@@ -11,380 +11,148 @@
     <LinearLayout
         android:id="@+id/content_result"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
+        android:padding="@dimen/activity_vertical_margin"
         tools:context="ihstowers.iptoutdoorgensizing.ResultActivity"
         tools:showIn="@layout/activity_result">
 
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/IchCardview"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            card_view:cardCornerRadius="2dp"
-            card_view:contentPadding="10dp">
+        <TextView
+            android:id="@+id/site"
+            style="@style/TextCardViewHeader"
+            android:text="Site Name" />
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle"  android:id="@+id/result_data">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/TextCardViewBold"
+                    android:text="Result Data" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/battery_nocharge"
+                    style="@style/SwitchCompatStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/battery_charge"
+                    android:textOn="Yes"
+                    android:textOff="No"/>
 
                 <TextView
                     android:id="@+id/Ich"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance.Widget.TextView"
-                    android:textColor="#222"
-                    android:textSize="22dp"
-                    android:textStyle="bold" />
+                    style="@style/TextCardViewBold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/battery_charge_current_a"
-                    android:textAppearance="@android:style/TextAppearance.Widget.TextView"
-                    android:textColor="#222" />
+                    android:id="@+id/Ich_"
+                    style="@style/TextCardView"
+                    android:text="@string/battery_charge_current_a" />
+
                 <TextView
                     android:id="@+id/t"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@android:style/TextAppearance.Widget.TextView"
-                    android:textColor="#222"
-                    android:textSize="22dp"
-                    android:textStyle="bold" />
+                    style="@style/TextCardViewBold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/autonomy"
-                    android:textAppearance="@android:style/TextAppearance.Widget.TextView"
-                    android:textColor="#222" />
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            card_view:cardCornerRadius="2dp"
-            card_view:contentPadding="10dp">
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                    android:id="@+id/t_"
+                    style="@style/TextCardView"
+                    android:text="@string/autonomy" />
 
                 <TextView
                     android:id="@+id/s"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:textAppearance="@android:style/TextAppearance.Widget.TextView"
-                    android:textColor="#222"
-                    android:textSize="22dp"
-                    android:textStyle="bold" />
+                    style="@style/TextCardViewBold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/s"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/generator_capacity_kva"
-                    android:textAppearance="@android:style/TextAppearance.Widget.TextView"
-                    android:textColor="#222" />
-            </RelativeLayout>
-        </android.support.v7.widget.CardView>
+                    android:id="@+id/s_nocharge"
+                    android:visibility="gone"
+                    style="@style/TextCardViewBold" />
 
-        <android.support.v7.widget.CardView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            card_view:cardCornerRadius="2dp"
-            card_view:contentPadding="10dp">
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                <TextView
+                    style="@style/TextCardView"
+                    android:text="@string/generator_capacity_kva" />
 
                 <TextView
                     android:id="@+id/nn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:textAppearance="@android:style/TextAppearance.Widget.TextView"
-                    android:textColor="#222"
-                    android:textSize="22dp"
-                    android:textStyle="bold" />
+                    style="@style/TextCardViewBold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/nn"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/nomber_of_rectifiers_need"
-                    android:textAppearance="@android:style/TextAppearance.Widget.TextView"
-                    android:textColor="#222" />
-            </RelativeLayout>
+                    style="@style/TextCardView"
+                    android:text="@string/nomber_of_rectifiers_need" />
+
+                <TextView
+                    android:id="@+id/gen_power_limitation"
+                    style="@style/TextCardViewBold" />
+
+                <TextView
+                    style="@style/TextCardView"
+                    android:text="@string/gen_power_limitation" />
+            </LinearLayout>
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:padding="8dp">
+        <android.support.v7.widget.CardView style="@style/CardViewStyle" android:id="@+id/input_data">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="8dp">
+                android:padding="16dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Input Data"
-                    android:textAppearance="@android:style/TextAppearance.Widget.TextView"
-                    android:textColor="#222"
-                    android:textSize="22dp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="9dp"
-                    android:layout_marginEnd="48dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        style="@style/EditKindIconStyle"
-                        android:layout_marginTop="2dp"
-                        android:src="@drawable/ic_flash_on_black_24dp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/i"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled="false"
-                            android:saveEnabled="false"
-                            android:text=""
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="150dip"
-                            android:layout_height="wrap_content"
-                            android:enabled="false"
-                            android:saveEnabled="false"
-                            android:text="@string/load_current_a"
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
+                    style="@style/TextCardViewBold"
+                    android:text="Input Data" />
 
 
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/i"
+                    style="@style/TextCardViewBold" />
 
-                <LinearLayout
-                    android:id="@+id/layout_c"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="9dp"
-                    android:layout_marginEnd="48dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        style="@style/EditKindIconStyle"
-                        android:layout_marginTop="2dp"
-                        android:src="@drawable/ic_battery_charging_full_black_24dp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/c"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled="false"
-                            android:saveEnabled="false"
-                            android:text=""
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="150dip"
-                            android:layout_height="wrap_content"
-                            android:enabled="false"
-                            android:saveEnabled="false"
-                            android:text="@string/battery_capacity_ah"
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
+                <TextView
+                    style="@style/TextCardView"
+                    android:text="@string/load_current_a" />
 
 
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/c"
+                    style="@style/TextCardViewBold" />
 
-                <LinearLayout
-                    android:id="@+id/layout_n"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="9dp"
-                    android:layout_marginEnd="48dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        style="@style/EditKindIconStyle"
-                        android:layout_marginTop="2dp"
-                        android:src="@drawable/ic_battery_charging_full_black_24dp"
-                        android:visibility="invisible" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/n"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled="false"
-                            android:saveEnabled="false"
-                            android:text=""
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled="false"
-                            android:saveEnabled="false"
-                            android:text="@string/nomber_of_battery_string"
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
+                <TextView
+                    style="@style/TextCardView"
+                    android:text="@string/battery_capacity_ah" />
 
 
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/n"
+                    style="@style/TextCardViewBold" />
+
+                <TextView
+                    style="@style/TextCardView"
+                    android:text="@string/nomber_of_battery_string" />
 
 
+                <TextView
+                    android:id="@+id/pu"
+                    style="@style/TextCardViewBold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="9dp"
-                    android:layout_marginEnd="48dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        style="@style/EditKindIconStyle"
-                        android:layout_marginTop="2dp"
-                        android:src="@drawable/ic_rectifier" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/pu"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled="false"
-                            android:saveEnabled="false"
-                            android:text=""
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled="false"
-                            android:saveEnabled="false"
-                            android:text="@string/rectifier_module_size_w"
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
+                <TextView
+                    style="@style/TextCardView"
+                    android:text="@string/rectifier_module_size_w" />
 
 
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/paircon"
+                    style="@style/TextCardViewBold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="9dp"
-                    android:layout_marginEnd="48dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        style="@style/EditKindIconStyle"
-                        android:layout_marginTop="2dp"
-                        android:src="@drawable/ic_aircon_24dp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/paircon"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled="false"
-                            android:saveEnabled="false"
-                            android:text=""
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled="false"
-                            android:saveEnabled="false"
-                            android:text="@string/aircon_size"
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
+                <TextView
+                    style="@style/TextCardView"
+                    android:text="@string/aircon_size" />
 
             </LinearLayout>
+
+
         </android.support.v7.widget.CardView>
     </LinearLayout>
 </ScrollView>
