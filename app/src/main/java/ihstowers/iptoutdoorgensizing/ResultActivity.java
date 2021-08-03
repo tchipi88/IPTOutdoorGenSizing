@@ -31,7 +31,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import ihstowers.iptoutdoorgensizing.domain.Site;
 import ihstowers.iptoutdoorgensizing.domain.SiteReleve;
@@ -47,38 +47,38 @@ public class ResultActivity extends AppCompatActivity  {
     final static String TAG = ResultActivity.class.getName();
 
 
-    @Bind(R.id.c)
+    @BindView(R.id.c)
     TextView c;
-    @Bind(R.id.pu)
+    @BindView(R.id.pu)
     TextView pu;
-    @Bind(R.id.n)
+    @BindView(R.id.n)
     TextView n;
-    @Bind(R.id.i)
+    @BindView(R.id.i)
     TextView i;
-    @Bind(R.id.nn)
+    @BindView(R.id.nn)
     TextView nn;
-    @Bind(R.id.s)
+    @BindView(R.id.s)
     TextView s;
-    @Bind(R.id.s_nocharge)
+    @BindView(R.id.s_nocharge)
     TextView s_nocharge;
-    @Bind(R.id.t)
+    @BindView(R.id.t)
     TextView t;
-    @Bind(R.id.t_)
+    @BindView(R.id.t_)
     TextView t_;
-    @Bind(R.id.Ich)
+    @BindView(R.id.Ich)
     TextView Ich;
-    @Bind(R.id.Ich_)
+    @BindView(R.id.Ich_)
     TextView Ich_;
-    @Bind(R.id.paircon)
+    @BindView(R.id.paircon)
     TextView paircon;
-    @Bind(R.id.gen_power_limitation)
+    @BindView(R.id.gen_power_limitation)
     TextView gen_power_limitation;
 
 
-    @Bind(R.id.battery_nocharge)
+    @BindView(R.id.battery_nocharge)
     SwitchCompat battery_nocharge;
 
-    @Bind(R.id.site)
+    @BindView(R.id.site)
     TextView site_name;
 
 

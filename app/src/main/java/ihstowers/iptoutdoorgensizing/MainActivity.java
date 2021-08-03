@@ -27,7 +27,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ihstowers.iptoutdoorgensizing.domain.Site;
@@ -41,42 +41,42 @@ import ihstowers.iptoutdoorgensizing.domain.enumeration.SiteTopology;
 public class MainActivity extends AppCompatActivity {
 
 
-    @Bind(R.id.site_operator_id)
+    @BindView(R.id.site_operator_id)
     EditText site_operator_id;
-    @Bind(R.id.site_id)
+    @BindView(R.id.site_id)
     EditText site_id;
-    @Bind(R.id.site_name)
+    @BindView(R.id.site_name)
     AutoCompleteTextView site_name;
-    @Bind(R.id.site_location)
+    @BindView(R.id.site_location)
     AutoCompleteTextView site_location;
-    @Bind(R.id.site_configuration)
+    @BindView(R.id.site_configuration)
     AutoCompleteTextView site_configuration;
-    @Bind(R.id.site_classe)
+    @BindView(R.id.site_classe)
     AutoCompleteTextView site_classe;
-    @Bind(R.id.site_topology)
+    @BindView(R.id.site_topology)
     AutoCompleteTextView site_topology;
 
-    @Bind(R.id.rectifier_module_size_w)
+    @BindView(R.id.rectifier_module_size_w)
     EditText rectifier_module_size_w;
-    @Bind(R.id.generator_capacity_kva)
+    @BindView(R.id.generator_capacity_kva)
     EditText generator_capacity_kva;
 
 
-    @Bind(R.id.c)
+    @BindView(R.id.c)
     EditText c;
-    @Bind(R.id.pu)
+    @BindView(R.id.pu)
     EditText pu;
-    @Bind(R.id.n)
+    @BindView(R.id.n)
     EditText n;
-    @Bind(R.id.i)
+    @BindView(R.id.i)
     EditText i;
-    @Bind(R.id.paircon)
+    @BindView(R.id.paircon)
     EditText paircon;
 
 
     SiteReleve siteReleve;
 
-    @Bind(R.id.layout_aircon)
+    @BindView(R.id.layout_aircon)
     LinearLayout layout_aircon;
 
     private DatabaseHelper databaseHelper = null;
