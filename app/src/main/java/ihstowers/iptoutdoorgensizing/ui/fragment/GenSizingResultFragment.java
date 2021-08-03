@@ -1,24 +1,24 @@
-package ihstowers.iptoutdoorgensizing;
+package ihstowers.iptoutdoorgensizing.ui.fragment;
 
-import android.Manifest;
+import static ihstowers.iptoutdoorgensizing.util.CSVUtil.followCVSformat;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import androidx.annotation.BinderThread;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
-import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.fragment.app.Fragment;
 
 import org.joda.time.LocalDate;
 
@@ -28,24 +28,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ihstowers.iptoutdoorgensizing.domain.Site;
+import ihstowers.iptoutdoorgensizing.MainActivity;
+import ihstowers.iptoutdoorgensizing.R;
 import ihstowers.iptoutdoorgensizing.domain.SiteReleve;
-import pub.devrel.easypermissions.AfterPermissionGranted;
-import pub.devrel.easypermissions.EasyPermissions;
 
-import static ihstowers.iptoutdoorgensizing.util.CSVUtil.followCVSformat;
-
-public class ResultActivity extends AppCompatActivity  {
-
-    private static final char DEFAULT_SEPARATOR = ',';
-
-    final static String TAG = ResultActivity.class.getName();
-
+public class GenSizingResultFragment extends Fragment {
 
     @BindView(R.id.c)
     TextView c;
@@ -83,31 +73,32 @@ public class ResultActivity extends AppCompatActivity  {
 
 
     SiteReleve siteReleve;
+    private static final char DEFAULT_SEPARATOR = ',';
+
+    final static String TAG = GenSizingResultFragment.class.getName();
 
 
+
+
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(getResources().getText(R.string.result));
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_gen_sizing_result, container, false);
+        ButterKnife.bind(this, view);
+//TODO
+        /*siteReleve = (SiteReleve) getIntent().getSerializableExtra("siteReleve");
 
-        ButterKnife.bind(this);
+        site_name.setText(siteReleve.site.ihs_id + " " + siteReleve.site.name);*/
 
-        siteReleve = (SiteReleve) getIntent().getSerializableExtra("siteReleve");
-
-        site_name.setText(siteReleve.site.ihs_id + " " + siteReleve.site.name);
-
-        i.setText((String) getIntent().getSerializableExtra("i"));
+       /* i.setText((String) getIntent().getSerializableExtra("i"));
         pu.setText((String) getIntent().getSerializableExtra("pu"));
         n.setText((String) getIntent().getSerializableExtra("n"));
         c.setText((String) getIntent().getSerializableExtra("c"));
         t.setText((String) getIntent().getSerializableExtra("t"));
 
         paircon.setText((String) getIntent().getSerializableExtra("paircon"));
-
+*/
         battery_nocharge.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -116,23 +107,61 @@ public class ResultActivity extends AppCompatActivity  {
                 battery_nocharge.setText(checked ? R.string.battery_without_charge : R.string.battery_charge);
             }
         });
-
-        nn.setText((String) getIntent().getSerializableExtra("nn"));
+//TODO
+        /*nn.setText((String) getIntent().getSerializableExtra("nn"));
         s.setText((String) getIntent().getSerializableExtra("s"));
         s_nocharge.setText((String) getIntent().getSerializableExtra("s_nocharge"));
         Ich.setText((String) getIntent().getSerializableExtra("Ich"));
-        gen_power_limitation.setText((String)getIntent().getSerializableExtra("gen_power_limitation"));
+        gen_power_limitation.setText((String)getIntent().getSerializableExtra("gen_power_limitation"));*/
 
+        return view;
+    }
+
+
+    public void generatefileResult(SiteReleve siteReleve) {
+        //todo final String fileName = siteReleve.site.ihs_id + "_Releve_" + siteReleve.dateReleve + ".csv";
+        final String fileName="";
+        String data = writeLine(siteReleve, DEFAULT_SEPARATOR, '"');
+        try {
+            File file = new File(getActivity().getCacheDir(), fileName);
+
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
+
+            BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
+
+            bufferedWriter.write(data);
+
+            bufferedWriter.close();
+
+            final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+            emailIntent.setType("plain/text");
+            emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"ngansop.arthur@gmail.com"});
+            //TODO emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Site " + siteReleve.site.ihs_id + " Releve " + LocalDate.now().toString());
+            Uri URI = Uri.parse("file://" + file.getAbsolutePath());
+            if (URI != null) {
+                emailIntent.putExtra(Intent.EXTRA_STREAM, URI);
+            }
+            emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, writeLine(siteReleve, DEFAULT_SEPARATOR, '"'));
+            startActivity(Intent.createChooser(emailIntent, "Sending email..."));
+
+        } catch (FileNotFoundException ex) {
+            Log.d(TAG, ex.getMessage());
+        } catch (IOException ex) {
+            Log.d(TAG, ex.getMessage());
+        }
 
 
     }
+
+
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_result, menu);
-        return true;
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_result, menu);
     }
+
 
 
     @Override
@@ -142,7 +171,8 @@ public class ResultActivity extends AppCompatActivity  {
                 generatefileResult(siteReleve);
                 return true;
             case R.id.edit:
-                Intent intent = new Intent(getApplication(), MainActivity.class);
+//TODO
+                /*Intent intent = new Intent(getContext(), MainActivity.class);
                 intent.putExtra("c", c.getText().toString());
                 intent.putExtra("i", i.getText().toString());
                 intent.putExtra("pu", pu.getText().toString());
@@ -151,7 +181,7 @@ public class ResultActivity extends AppCompatActivity  {
 
                 intent.putExtra("siteReleve", siteReleve);
                 startActivity(intent);
-                finish();
+                finish();*/
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -191,8 +221,8 @@ public class ResultActivity extends AppCompatActivity  {
 
         sb.append("\n");
 
-
-        sb.append(followCVSformat(siteReleve.site.operator_id));
+//TODO
+       /* sb.append(followCVSformat(siteReleve.site.operator_id));
         sb.append(separators);
         sb.append(followCVSformat(siteReleve.site.ihs_id));
         sb.append(separators);
@@ -214,53 +244,11 @@ public class ResultActivity extends AppCompatActivity  {
         sb.append(separators);
         sb.append(followCVSformat(siteReleve.rectifierNumberCalculated + ""));
         sb.append(separators);
-        sb.append(followCVSformat(siteReleve.dateReleve));
+        sb.append(followCVSformat(siteReleve.dateReleve));*/
 
         sb.append("\n");
         return sb.toString();
 
 
     }
-
-
-
-
-
-
-    public void generatefileResult(SiteReleve siteReleve) {
-            final String fileName = siteReleve.site.ihs_id + "_Releve_" + siteReleve.dateReleve + ".csv";
-
-            String data = writeLine(siteReleve, DEFAULT_SEPARATOR, '"');
-            try {
-                File file = new File(getCacheDir(), fileName);
-
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
-
-                BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
-
-                bufferedWriter.write(data);
-
-                bufferedWriter.close();
-
-                final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-                emailIntent.setType("plain/text");
-                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"ngansop.arthur@gmail.com"});
-                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Site " + siteReleve.site.ihs_id + " Releve " + LocalDate.now().toString());
-                Uri URI = Uri.parse("file://" + file.getAbsolutePath());
-                if (URI != null) {
-                    emailIntent.putExtra(Intent.EXTRA_STREAM, URI);
-                }
-                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, writeLine(siteReleve, DEFAULT_SEPARATOR, '"'));
-                startActivity(Intent.createChooser(emailIntent, "Sending email..."));
-
-            } catch (FileNotFoundException ex) {
-                Log.d(TAG, ex.getMessage());
-            } catch (IOException ex) {
-                Log.d(TAG, ex.getMessage());
-            }
-
-
-    }
-
 }

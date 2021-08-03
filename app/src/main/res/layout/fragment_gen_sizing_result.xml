@@ -15,7 +15,7 @@
         android:orientation="vertical"
         android:padding="@dimen/activity_vertical_margin"
         tools:context="ihstowers.iptoutdoorgensizing.ResultActivity"
-        tools:showIn="@layout/activity_result">
+        tools:showIn="@layout/activity_main">
 
 
         <TextView

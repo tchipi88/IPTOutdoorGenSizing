@@ -29,4 +29,8 @@
     <string name="site_operator_id">Operator ID</string>
     <string name="number_of_rectifiers">Number of rectifiers (Modules)</string>
     <string name="gen_power_limitation">Gen-Power limitation</string>
+    <string name="skip">SKIP</string>
+    <string name="onboarding_message" >Power cabinet and Generator sizing</string>
+    <string name="join">Join</string>
+    <string name="no_data">No Data</string>
 </resources>

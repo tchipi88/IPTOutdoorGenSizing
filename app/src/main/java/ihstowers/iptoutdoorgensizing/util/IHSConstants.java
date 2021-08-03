@@ -1,4 +1,4 @@
-package ihstowers.iptoutdoorgensizing;
+package ihstowers.iptoutdoorgensizing.util;
 
 /**
  * Created by tchipi on 3/19/18.

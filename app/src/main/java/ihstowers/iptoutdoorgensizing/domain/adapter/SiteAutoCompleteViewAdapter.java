@@ -13,9 +13,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ihstowers.iptoutdoorgensizing.R;
+import ihstowers.iptoutdoorgensizing.dao.repository.SiteRepository;
 import ihstowers.iptoutdoorgensizing.domain.Site;
-import ihstowers.iptoutdoorgensizing.domain.dao.util.DatabaseHelper;
+import ihstowers.iptoutdoorgensizing.ui.viewmodel.SiteViewModel;
 
 /**
  * Created by tchipi on 3/19/18.
@@ -26,17 +26,16 @@ public class SiteAutoCompleteViewAdapter extends ArrayAdapter {
     private List<Site> sites;
     private Context mContext;
     private int itemLayout;
-    private DatabaseHelper databaseHelper;
-
+    final SiteViewModel siteViewModel;
 
     private SiteAutoCompleteViewAdapter.ListFilter listFilter = new SiteAutoCompleteViewAdapter.ListFilter();
 
-    public SiteAutoCompleteViewAdapter(Context context, int resource, List<Site> sites,DatabaseHelper databaseHelper) {
+    public SiteAutoCompleteViewAdapter(Context context, int resource, List<Site> sites, SiteViewModel siteViewModel) {
         super(context, resource, sites);
         this.sites = sites;
         mContext = context;
         itemLayout=resource;
-        this.databaseHelper=databaseHelper;
+        this.siteViewModel = siteViewModel;
     }
 
     @Override
@@ -47,7 +46,7 @@ public class SiteAutoCompleteViewAdapter extends ArrayAdapter {
                     .inflate(itemLayout, parent, false);
         }
 
-        TextView strName = (TextView) view.findViewById(android.R.id.text1);
+        TextView strName =  view.findViewById(android.R.id.text1);
         strName.setText(getItem(position).name);
 
         return view;
@@ -86,13 +85,7 @@ public class SiteAutoCompleteViewAdapter extends ArrayAdapter {
                 final String searchStrLowerCase = "%"+prefix.toString().toUpperCase()+"%";
 
                 //Call to database to get matching records using room
-                List<Site> matchValues =
-                        null;
-                try {
-                    matchValues = databaseHelper.getSiteDao().queryBuilder().where().like("name",searchStrLowerCase).query();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                List<Site> matchValues = siteViewModel.loadSites(searchStrLowerCase).getValue();
 
                 results.values = matchValues;
                 results.count = matchValues.size();

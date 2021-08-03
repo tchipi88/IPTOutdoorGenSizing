@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardViewStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8dp">
+
+
+
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/TextCardViewBold"
+            android:layout_marginLeft="@dimen/_8dp"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="QUESTIONNN  45" />
+
+
+
+
+        <TextView
+            android:id="@+id/ihsId_txt"
+            style="@style/TextCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintEnd_toStartOf="@id/ihsId"
+            android:text="IHS ID" />
+
+        <TextView
+            android:id="@+id/ihsId"
+            style="@style/TextCardView"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8dp"
+            app:layout_constraintStart_toEndOf="@id/ihsId_txt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ihsId_txt"
+            tools:text="Loreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeem" />
+
+        <TextView
+            android:id="@+id/site_operator_id_txt"
+            style="@style/TextCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ihsId"
+            app:layout_constraintEnd_toStartOf="@id/site_operator_id"
+            android:text="@string/site_operator_id" />
+
+        <TextView
+            android:id="@+id/site_operator_id"
+            style="@style/TextCardView"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8dp"
+            app:layout_constraintStart_toEndOf="@id/site_operator_id_txt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/site_operator_id_txt"
+            tools:text="Loreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeem" />
+
+
+
+        <TextView
+            android:id="@+id/site_location_txt"
+            style="@style/TextCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/site_operator_id_txt"
+            app:layout_constraintEnd_toStartOf="@id/site_location"
+            android:text="@string/site_location" />
+
+        <TextView
+            android:id="@+id/site_location"
+            style="@style/TextCardView"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8dp"
+            app:layout_constraintStart_toEndOf="@id/site_location_txt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/site_location_txt"
+            tools:text="Loreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeem" />
+
+
+        <TextView
+            android:id="@+id/site_configuration_txt"
+            style="@style/TextCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/site_location_txt"
+            app:layout_constraintEnd_toStartOf="@id/site_configuration"
+            android:text="@string/site_configuration" />
+
+        <TextView
+            android:id="@+id/site_configuration"
+            style="@style/TextCardView"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8dp"
+            app:layout_constraintStart_toEndOf="@id/site_configuration_txt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/site_configuration_txt"
+            tools:text="Loreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeem" />
+
+
+        <TextView
+            android:id="@+id/site_classe_txt"
+            style="@style/TextCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/site_configuration_txt"
+            app:layout_constraintEnd_toStartOf="@id/site_classe"
+            android:text="@string/site_classe" />
+
+        <TextView
+            android:id="@+id/site_classe"
+            style="@style/TextCardView"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8dp"
+            app:layout_constraintStart_toEndOf="@id/site_classe_txt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/site_classe_txt"
+            tools:text="Loreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeem" />
+
+
+        <TextView
+            android:id="@+id/site_topology_txt"
+            style="@style/TextCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/site_classe_txt"
+            app:layout_constraintEnd_toStartOf="@id/site_topology"
+            android:text="@string/site_topology" />
+
+        <TextView
+            android:id="@+id/site_topology"
+            style="@style/TextCardView"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8dp"
+            app:layout_constraintStart_toEndOf="@id/site_topology_txt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/site_topology_txt"
+            tools:text="Loreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeem" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/calculate"
+            style="@style/ImageButton"
+            app:layout_constraintEnd_toStartOf="@+id/edit"
+            app:layout_constraintTop_toBottomOf="@id/site_topology"
+            app:srcCompat="@drawable/ic_baseline_calculate_24" />
+
+
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/edit"
+            style="@style/ImageButton"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/site_topology"
+            app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

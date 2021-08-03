@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/onboardingFragment">
+
+
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="ihstowers.iptoutdoorgensizing.ui.fragment.OnboardingFragment"
+        android:label="Onboarding" />
+    <fragment
+        android:id="@+id/siteListFragment"
+        android:name="ihstowers.iptoutdoorgensizing.ui.fragment.SiteListFragment"
+        android:label="Site List" />
+    <navigation android:id="@+id/nav_gen_sizing"
+        app:startDestination="@id/genSizingCalculFragment">
+        <fragment
+            android:id="@+id/genSizingCalculFragment"
+            android:name="ihstowers.iptoutdoorgensizing.ui.fragment.GenSizingCalculFragment"
+            android:label="Gen Sizing Calcul" >
+            <action
+                android:id="@+id/action_genSizingCalculFragment_to_genSizingResultFragment"
+                app:destination="@id/genSizingResultFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/genSizingResultFragment"
+            android:name="ihstowers.iptoutdoorgensizing.ui.fragment.GenSizingResultFragment"
+            android:label="Gen Sizing Result" />
+    </navigation>
+    <action android:id="@+id/action_global_siteListFragment" app:destination="@id/siteListFragment"/>
+    <action android:id="@+id/action_global_nav_gen_sizing" app:destination="@id/nav_gen_sizing"/>
+
+
+</navigation>
